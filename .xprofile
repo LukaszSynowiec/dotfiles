@@ -1,0 +1,11 @@
+#!/bin/sh
+mpd &
+srandrd displayhandler &
+xcompmgr &
+sxhkd &
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/Xresources &
+dunst &
+dwmbar &
+unclutter &
+displayhandler ;
+setxkbmap pl;
