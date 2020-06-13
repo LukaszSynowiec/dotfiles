@@ -1,0 +1,38 @@
+super + Return
+	$TERMINAL
+super + Return + shift
+	dmenu_run
+control + alt + e
+	dmenueditconfigs
+control + alt + b
+	$BROWSER
+
+XF86Audio{Prev,Next}
+	mpc -q {prev,next}
+
+XF86MonBrightness{Down,Up}
+	light {-U 10,-A 10}
+
+XF86AudioMute
+	pamixer -t
+
+XF86Audio{Lower,Raise}Volume
+	pamixer {-d,-i}5
+
+XF86AudioPlay
+	mpc -q toggle
+
+super + shift + q
+	sysact
+
+super + shift + p
+	mpc -q pause; pauseallmpv
+
+super + shift +
+	mpc -q seek 0%
+# Seek foward in song
+super + {_,shift +} bracketright
+	mpc -q seek +{10,120}
+# Seek backward in song
+super + {_,shift +} bracketleft
+	mpc -q seek -{10,120}

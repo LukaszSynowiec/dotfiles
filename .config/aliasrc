@@ -1,0 +1,72 @@
+#!/bin/sh
+
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+alias mpv="mpv --hwdec"
+alias df="df -h"
+
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkd="mkdir -pv"
+
+
+
+
+alias \
+	g="git" \
+	gc="git checkout" \
+	gb="git branch" \
+	gs="git status" \
+	config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# Changing "ls" to "exa"
+alias \
+	ls="exa -al --color=always --group-directories-first" \
+	lt="exa -aT --color=always --group-directories-first" \
+        grep="grep --color=auto" \
+	diff="diff --color=auto"
+
+alias \
+	ka="killall" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="sudo pacman" \
+
+
+
+alias \
+	suckinstall="rm -rf config.h && make && sudo make clean install" \
+	suckclean="git checkout master && make clean && rm -f config.h && git reset --hard origin/master"
+
+
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+#yt/mp3
+alias \
+	mp3="youtube-dl --no-playlist --download-archive ~/data/docs/archive.txt -o '~/data/music/%(title)s.%(ext)s' -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail" \
+	mp3p="youtube-dl --ignore-errors --yes-playlist --download-archive ~/data/docs/archive.txt -o '~/data/music/%(title)s.%(ext)s' -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail" \
+	updatemusic="mp3p 'https://www.youtube.com/playlist?list=PLqB98W3PsDzAm6rE-9RCjWrSEHy0e07YX' && mp3p 'https://www.youtube.com/playlist?list=PLqB98W3PsDzB6bHBDPjCQyZwP4GXmVdlN'"
+
+#cpp
+
+compilef()
+{
+	g++ ${@:2} -std=c++17 -Wshadow -Wall -O2 -Wno-unused-result $1 -o ${1%.*}
+}
+compilefp()
+{
+	g++  $1 -o ${1%.*}
+}
+
+alias run='./main'
+alias runi='run < input'
+alias compile="compilef main.cpp"
+alias comr="compile && run"
+alias comri="compile && runi"
+cppmakedir()
+{
+	cd $HOME/data/dev/codeforces && mkdir $1 && cd $1 && cp ../template.cpp  main.cpp && touch input && $EDITOR -O main.cpp input
+}
