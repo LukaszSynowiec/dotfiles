@@ -1,0 +1,2 @@
+#!/bin/sh
+mpv --ytdl-format="bestvideo[height<=?360]+bestaudio/best" --volume=70 $1

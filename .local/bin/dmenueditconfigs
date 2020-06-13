@@ -1,0 +1,123 @@
+#!/bin/bash
+#  ____ _____
+# |  _ \_   _|  Derek Taylor (DistroTube)
+# | | | || |    http://www.youtube.com/c/DistroTube
+# | |_| || |    http://www.gitlab.com/dwt1/
+# |____/ |_|
+#
+# Dmenu script for editing some of my more frequently edited config files.
+
+
+declare options=("autostart
+st
+dwm
+dmenu
+zshrc
+zprofile
+xprofile
+xinitrc
+aliasrc
+Xresources
+qutebrowser
+qutebrowser-homepage-html
+qutebrowser-homepage-css
+qutebrowser-quickmarks
+qutebrowser-run-mpv
+dmenueditconfigs
+nvim
+dunst
+fontconfig
+lf
+mpd
+mpv
+ncmpcpp
+rtorrent
+sxhkd
+quit")
+
+choice=$(echo -e "${options[@]}" | dmenu -i -c -h 25 -l 20 -p 'Edit config file: ')
+
+case "$choice" in
+	quit)
+		exit 1
+	;;
+	autostart)
+		choice="$HOME/.local/bin/autostart"
+	;;
+	st)
+		choice="$HOME/.local/src/st/config.h"
+	;;
+	dwm)
+		choice="$HOME/.local/src/dwm-6.2/config.def.h"
+	;;
+    	dmenu)
+    		choice="$HOME/.local/src/dmenu-4.9/config.def.h"
+	;;
+    	zshrc)
+		choice="$HOME/.config/zsh/.zshrc"
+	;;
+	zprofile)
+		choice="$HOME/.zprofile"
+	;;
+        xprofile)
+                 choice="$HOME/.xprofile"
+        ;;
+    	xinitrc)
+        	choice="$HOME/.config/xinitrc"
+	;;
+	qutebrowser)
+		choice="$HOME/.config/qutebrowser/config.py"
+	;;
+    	qutebrowser-homepage-html)
+		choice="$HOME/.config/qutebrowser/html/homepage.html"
+	;;
+    	qutebrowser-homepage-css)
+		choice="$HOME/.config/qutebrowser/styles/homepage.css"
+	;;
+    	qutebrowser-quickmarks)
+		choice="$HOME/.config/qutebrowser/quickmarks"
+	;;
+        qutebrowser-run-mpv)
+		choice="$HOME/.config/qutebrowser/userscripts/run_mpv.sh"
+	;;
+    	dmenueditconfigs)
+		choice="$HOME/.local/bin/dmenueditconfigs"
+   	;;
+        Xresources)
+		choice="$HOME/.config/Xresources"
+	;;
+	aliasrc)
+		choice="$HOME/.config/aliasrc"
+	;;
+	nvim)
+		choice="$HOME/.config/nvim/init.vim"
+	;;
+	mpd)
+		choice="$HOME/.config/mpd/mpd.conf"
+	;;
+	mpv)
+		choice="$HOME/.config/mpv/mpv.conf"
+	;;
+	ncmpcpp)
+		choice="$HOME/.config/ncmpcpp/config"
+	;;
+	rtorrent)
+		choice="$HOME/.config/rtorrent/rtorrent.rc"
+	;;
+	sxhkd)
+		choice="$HOME/.config/sxhkd/sxhkdrc"
+	;;
+	dunst)
+		choice="$HOME/.config/dunst/dunstrc"
+	;;
+	fontconfig)
+		choice="$HOME/.config/fontconfig/fonts.conf"
+	;;
+	lf)
+		choice="$HOME/.config/lf/lfrc"
+	;;
+		*)
+		exit 1
+	;;
+esac
+st -e vim "$choice"
