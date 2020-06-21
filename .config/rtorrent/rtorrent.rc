@@ -37,7 +37,7 @@
 
 # Default directory to save the downloaded torrents.
 #
-directory.default.set = ~/data/downloads
+directory.default.set = ~/downloads
 
 # Default session directory. Make sure you don't run multiple instance
 # of rTorrent using the same session directory. Perhaps using a
@@ -48,12 +48,12 @@ session.path.set = ~/.config/rtorrent/session
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
 #
-schedule2 = watch_directory,5,6,load.start=~/data/downloads/*.torrent
-schedule2 = watch_directory_2,5,6,"load.start=~/data/downloads/watch/movie/*.torrent,d.directory.set=~/data/films/,d.custom1.set=movie"
-schedule2 = watch_directory_3,5,6,"load.start=~/data/downloads/watch/windows/*.torrent,d.directory.set=~/data/iso/windows/,d.custom1.set=windows"
-schedule2 = watch_directory_4,5,6,"load.start=~/data/downloads/watch/linux/*.torrent,d.directory.set=~/data/iso/linux/,d.custom1.set=linux"
+schedule2 = watch_directory,5,6,load.start=~/downloads/*.torrent
+schedule2 = watch_directory_2,5,6,"load.start=~/downloads/watch/movie/*.torrent,d.directory.set=~/movies/,d.custom1.set=movie"
+schedule2 = watch_directory_3,5,6,"load.start=~/downloads/watch/windows/*.torrent,d.directory.set=~/iso/windows/,d.custom1.set=windows"
+schedule2 = watch_directory_4,5,6,"load.start=~/downloads/watch/linux/*.torrent,d.directory.set=~/iso/linux/,d.custom1.set=linux"
 
-method.set_key = event.download.finished,notify,"execute2=/home/lukasz/.local/bin/rtorrentnotify,$d.name="
+method.set_key = event.download.finished,notify,"execute2=~/.local/bin/rtorrentnotify,$d.name="
 # Close torrents when disk-space is low.
 #
 #schedule2 = low_diskspace,5,60,close_low_diskspace=100M

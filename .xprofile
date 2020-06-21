@@ -1,11 +1,15 @@
 #!/bin/sh
 mpd &
-srandrd displayhandler &
-xcompmgr &
-sxhkd &
+runmpdnotification &
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/Xresources &
+xcompmgr &
+autorandr --change &
+sxhkd &
 dunst &
 dwmbar &
 unclutter &
-displayhandler ;
-setxkbmap pl;
+setwallpaper &
+setxkbmap pl &
+qutebrowser &
+st -n rtorrent -e rtorrent &
+xhost +local:lukasz &

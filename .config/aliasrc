@@ -2,13 +2,13 @@
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
-alias mpv="mpv --hwdec"
+alias mpv="mpv --hwdec --sub-auto=all"
 alias df="df -h"
 
 alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
+	rm="trash" \
 	mkd="mkdir -pv"
 
 
@@ -33,21 +33,20 @@ alias \
 	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
-	p="sudo pacman" \
+	p="sudo pacman"
 
 
 
 alias \
-	suckinstall="rm -rf config.h && make && sudo make clean install" \
-	suckclean="git checkout master && make clean && rm -f config.h && git reset --hard origin/master"
+	suckinstall="rm -rf config.h && sudo make clean install"
 
 
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 #yt/mp3
 alias \
-	mp3="youtube-dl --no-playlist --download-archive ~/data/docs/archive.txt -o '~/data/music/%(title)s.%(ext)s' -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail" \
-	mp3p="youtube-dl --ignore-errors --yes-playlist --download-archive ~/data/docs/archive.txt -o '~/data/music/%(title)s.%(ext)s' -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail" \
+	mp3="youtube-dl --no-playlist --download-archive ~/docs/archive.txt -o '~/music/%(title)s.%(ext)s' -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail" \
+	mp3p="youtube-dl --ignore-errors --yes-playlist --download-archive ~/docs/archive.txt -o '~/music/%(title)s.%(ext)s' -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail" \
 	updatemusic="mp3p 'https://www.youtube.com/playlist?list=PLqB98W3PsDzAm6rE-9RCjWrSEHy0e07YX' && mp3p 'https://www.youtube.com/playlist?list=PLqB98W3PsDzB6bHBDPjCQyZwP4GXmVdlN'"
 
 #cpp
@@ -68,5 +67,5 @@ alias comr="compile && run"
 alias comri="compile && runi"
 cppmakedir()
 {
-	cd $HOME/data/dev/codeforces && mkdir $1 && cd $1 && cp ../template.cpp  main.cpp && touch input && $EDITOR -O main.cpp input
+	cd $HOME/dev/codeforces && mkdir $1 && cd $1 && cp ../template.cpp  main.cpp && touch input && $EDITOR -O main.cpp input
 }

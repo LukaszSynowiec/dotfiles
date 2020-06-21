@@ -853,7 +853,7 @@ c.content.pdfjs = True
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
-# c.content.user_stylesheets = []
+# c.content.user_stylesheets = ["solarizedalldark.css"]
 
 ## Enable WebGL.
 ## Type: Bool
@@ -880,7 +880,7 @@ c.content.pdfjs = True
 ## Directory to save downloads to. If unset, a sensible OS-specific
 ## default is used.
 ## Type: Directory
-c.downloads.location.directory = "/home/lukasz/data/downloads"
+c.downloads.location.directory = "/home/lukasz/downloads"
 
 ## Prompt the user for the download location. If set to false,
 ## `downloads.location.directory` will be used.
@@ -2008,4 +2008,4 @@ config.set('hints.selectors', {
 
 # Add binding for the new hint group.
 config.bind(',c', 'hint copy-button')
-config.bind(',y','hint links spawn --userscript ~/.config/qutebrowser/userscripts/run_mpv.sh {hint-url}')
+config.bind(',y','hint links spawn mpvyt {hint-url}')

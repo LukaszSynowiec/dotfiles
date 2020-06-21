@@ -3,5 +3,5 @@ if [[ `pidof i3lock` ]]
 then
     :
 else
-    i3lock -k --screen=1 -c 010101 -e
+    i3lock -c 010101 -e
 fi

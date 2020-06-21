@@ -7,6 +7,21 @@ control + alt + e
 control + alt + b
 	$BROWSER
 
+control + shift + j
+	passdmenu -u '^login: (.*)' -x c
+
+control + shift + k
+	passdmenu -P -x c
+
+control + alt + h
+	passdmenu -u '^login: (.*)' -t -P -r
+
+control + alt + j
+	passdmenu -u '^login: (.*)' -t
+
+control + alt + k
+	passdmenu -P -t
+
 XF86Audio{Prev,Next}
 	mpc -q {prev,next}
 
